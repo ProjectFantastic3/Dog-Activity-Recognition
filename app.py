@@ -20,14 +20,21 @@ def main():
 
     main_menu = st.sidebar.radio(
         "Select an option",
-        ("App Insides","Quick Guide", "Application")
+        ("App Insights","Quick Guide", "Application")
     )
-    if main_menu == "App Insides":
+    if main_menu == "App Insights":
         st.title("Paper")
 
         paper_drive_link = "https://drive.google.com/file/d/1rOQl03EHiVCTFlE10RVPsoQnZODZbScr/view?usp=drive_link"
 
         text = f"Click <a href='{paper_drive_link}' target='_blank'>here</a> to view the paper."
+        st.markdown(f"<p style='font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
+
+        st.title("Github Repo")
+        
+        git_repo_link = "https://github.com/ProjectFantastic3/Dog-Activity-Recognition"
+
+        text = f"Click <a href='{git_repo_link}' target='_blank'>here</a> to view the code."
         st.markdown(f"<p style='font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
 
         st.title("Data Analysis")
