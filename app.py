@@ -76,7 +76,6 @@ def main():
         data_df = pd.DataFrame(dataframe)
 
         # Print out the first 10 rows of the data
-        # Give a title to the table with big font size
         st.write("Sample Data")
         st.write(data_df.sample(10))
 
