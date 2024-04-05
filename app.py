@@ -20,26 +20,29 @@ def main():
 
     main_menu = st.sidebar.radio(
         "Select an option",
-        ("App Insights","Quick Guide", "Application")
+        ("App Insights", "Quick Guide", "Application")
     )
     if main_menu == "App Insights":
-        st.title("Paper")
+        # st.title("Paper")
 
         paper_drive_link = "https://drive.google.com/file/d/1rOQl03EHiVCTFlE10RVPsoQnZODZbScr/view?usp=drive_link"
 
         text = f"Click <a href='{paper_drive_link}' target='_blank'>here</a> to view the paper."
-        st.markdown(f"<p style='font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
+        st.markdown(
+            f"<p style='font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
 
         st.title("Github Repo")
-        
+
         git_repo_link = "https://github.com/ProjectFantastic3/Dog-Activity-Recognition"
 
         text = f"Click <a href='{git_repo_link}' target='_blank'>here</a> to view the code."
-        st.markdown(f"<p style='font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
+        st.markdown(
+            f"<p style='font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
 
         st.title("Data Analysis")
 
-        st.markdown("<h1 style='text-align: center; color: #008080; font-size: 26px;'>Data Information</h1>", unsafe_allow_html=True)
+        st.markdown(
+            "<h1 style='text-align: center; color: #008080; font-size: 26px;'>Data Information</h1>", unsafe_allow_html=True)
         column_info = {
             'ax': 'Acceleration X: Represents acceleration along the X-axis. Positive values indicate acceleration in the positive X-direction, while negative values indicate acceleration in the negative X-direction.',
             'ay': 'Acceleration Y: Indicates acceleration along the Y-axis. Positive values signify acceleration in the positive Y-direction, and negative values denote acceleration in the negative Y-direction.',
@@ -56,7 +59,6 @@ def main():
             st.write(info)
             st.write('\n')
 
-        
         dataframe = {
             'ax': [-1.2190, -0.8440, 0.0580, 0.8145, -0.1509, -2.2520, -0.0933, -0.7860, -0.7340, 0.1392],
             'ay': [-0.1490, 0.1020, 0.1830, 0.7466, -0.7368, 0.1710, 0.8467, 0.1250, 0.0650, -0.8584],
@@ -102,8 +104,8 @@ def main():
         st.image(lineplot_lying, caption="")
 
         lineplot_climbing = plt.imread("utils/Images/LinePlot_climbing.png")
-        st.image(lineplot_climbing, caption="") 
-        
+        st.image(lineplot_climbing, caption="")
+
         st.write("➣ Scatter plot of all training data for all actions")
         scatter_plot = plt.imread("utils/Images/scatter_plot.png")
         st.image(scatter_plot, caption="")
@@ -117,14 +119,16 @@ def main():
 
         st.title("Evaluations")
 
-        st.write("➣ Classification Report and Confusion Matrix of CNN Model")        
-        classification_report = plt.imread("utils/Images/classification_report.png")
-        st.image(classification_report, caption="", width=800, use_column_width=False)
+        st.write("➣ Classification Report and Confusion Matrix of CNN Model")
+        classification_report = plt.imread(
+            "utils/Images/classification_report.png")
+        st.image(classification_report, caption="",
+                 width=800, use_column_width=False)
 
         # Confusion Matrix
         confusion_matrix = plt.imread("utils/Images/confusion_matrix.png")
-        st.image(confusion_matrix, caption="", width=800, use_column_width=False)
-
+        st.image(confusion_matrix, caption="",
+                 width=800, use_column_width=False)
 
     elif main_menu == "Quick Guide":
         flow_chart = plt.imread("utils/Images/Flowchart.png")
@@ -137,7 +141,6 @@ def main():
         # video_bytes = video_file.read()
         # st.video(video_bytes)
 
-
         # Step 1
         st.title("Step 1: Attach the device to your dog's collar")
 
@@ -148,7 +151,8 @@ def main():
 
         st.write("➣ Equip the dog with a motion sensor to capture its activity data.")
         st.write("➣ Attach the motion sensor securely to the dog's collar.")
-        st.write("➣ Make sure the motion sensor is turned on and the battery is charged.")
+        st.write(
+            "➣ Make sure the motion sensor is turned on and the battery is charged.")
 
         # Step 2
         st.title("Step 2: Record the dog's activity data using the motion sensor")
@@ -158,10 +162,14 @@ def main():
         image = image.resize((800, 400))
         st.image(image, caption="", use_column_width=False)
 
-        st.write("➣ Establish a bluetooth connection between the motion sensor and wit motion app. ")
-        st.write("➣ Select the device and port number from the list of available devices and ports.")
-        st.write("➣ Record the dog's activity data using the motion sensor by pressing the record button.")
-        st.write("➣ Stop recording when you want to stop and save the data in a csv file.")
+        st.write(
+            "➣ Establish a bluetooth connection between the motion sensor and wit motion app. ")
+        st.write(
+            "➣ Select the device and port number from the list of available devices and ports.")
+        st.write(
+            "➣ Record the dog's activity data using the motion sensor by pressing the record button.")
+        st.write(
+            "➣ Stop recording when you want to stop and save the data in a csv file.")
 
         # Step 3
         st.title("Step 3: Upload the csv file to the Dog Activity Recognizer App")
@@ -175,9 +183,9 @@ def main():
         st.write("➣ Upload the csv file to the Dog Activity Recognizer App.")
         st.write("➣ Make sure the csv file is in the correct format.")
         st.write("➣ The app will analyze the data and predict the dog's activity.")
-        st.write(f"➣ If you don't have a csv file, you can download a sample csv file from [here]({smaple_csv_glink}).")
+        st.write(
+            f"➣ If you don't have a csv file, you can download a sample csv file from [here]({smaple_csv_glink}).")
 
-        
         # Step 4
         st.title("Step 4: Data Processing and Prediction")
 
@@ -198,21 +206,22 @@ def main():
         st.image(image, caption="", use_column_width=False)
 
         st.write("➣ The app display the prediction results.")
-        st.write("➣ In the prediction results, the app display the most likely activity of the dog.")
+        st.write(
+            "➣ In the prediction results, the app display the most likely activity of the dog.")
         st.write("➣ The line chart of all actions over time for each data points.")
 
         # Bar chart
         image = Image.open("utils/Images/guide_step5_2.png")
         image = image.resize((800, 400))
         st.image(image, caption="", use_column_width=False)
-        st.write("➣ The app display the most occurred actions over a 5 different time intervals.")
+        st.write(
+            "➣ The app display the most occurred actions over a 5 different time intervals.")
 
         # Countplot
         image = Image.open("utils/Images/guide_step5_3.png")
         image = image.resize((800, 400))
         st.image(image, caption="", use_column_width=False)
         st.write("➣ The app display the distribution of all actions.")
-
 
     elif main_menu == "Application":
 
@@ -226,7 +235,8 @@ def main():
 
         st.title("Upload the csv file here")
         smaple_csv_glink = "https://drive.google.com/file/d/1HB3OHQ-vVlR-AA2erIBRCukgI28BhDP2/view?usp=drive_link"
-        st.write(f"➣ If you don't have a csv file, you can download a sample csv file from [here]({smaple_csv_glink}).")
+        st.write(
+            f"➣ If you don't have a csv file, you can download a sample csv file from [here]({smaple_csv_glink}).")
         uploaded_file = st.file_uploader("Choose a file")
 
         if uploaded_file is not None:
@@ -247,17 +257,19 @@ def main():
                 #     models, features_reshaped)
                 all_actions, most_occurred_pred = make_prediction(
                     model_80, features_reshaped)
-                render_graphs  = True
-            
+                render_graphs = True
+
             if render_graphs:
                 st.success("Prediction ready!")
                 text = f"From my observation, your Pino is currently {most_occurred_pred}."
-                st.markdown(f"<p style='text-align: center; color: #008080; font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
-                
+                st.markdown(
+                    f"<p style='text-align: center; color: #008080; font-size: 26px;'>{text}</p>", unsafe_allow_html=True)
+
                 # Line chart of all actions
                 st.write("")
                 st.write("")
-                st.write(f"➣ Below is a line chart of all actions over time for {len(all_actions)} data points.")
+                st.write(
+                    f"➣ Below is a line chart of all actions over time for {len(all_actions)} data points.")
 
                 fix, ax = plt.subplots()
                 plt.plot(all_actions, color='blue')
@@ -265,11 +277,12 @@ def main():
                 plt.xlabel('Time')
                 plt.ylabel('Actions')
                 st.pyplot(fix)
-                
+
                 # Bar chart of all actions
                 st.write("")
                 st.write("")
-                st.write(f"➣ Below is a bar chart of the most occurred over a 5 different time intervals. This chart shows the most occurred actions of the dog for each time interval. Each interval lenght is {len(all_actions)//5}.")
+                st.write(
+                    f"➣ Below is a bar chart of the most occurred over a 5 different time intervals. This chart shows the most occurred actions of the dog for each time interval. Each interval lenght is {len(all_actions)//5}.")
 
                 all_actions_array = np.array(all_actions)
                 divided_actions = np.array_split(all_actions_array, 5)
@@ -277,8 +290,10 @@ def main():
                 most_occurred_actions = []
                 for action in divided_actions:
                     counter = Counter(action)
-                    most_occurred_action, most_occurred_count = counter.most_common(1)[0]
-                    most_occurred_actions.append((most_occurred_action, most_occurred_count))
+                    most_occurred_action, most_occurred_count = counter.most_common(1)[
+                        0]
+                    most_occurred_actions.append(
+                        (most_occurred_action, most_occurred_count))
                 actions, counts = zip(*most_occurred_actions)
 
                 fix2, ax2 = plt.subplots()
@@ -295,7 +310,8 @@ def main():
                 # Countplot of all actions
                 st.write("")
                 st.write("")
-                st.write(f"➣ Below is a countplot of all actions. This chart shows the distribution of {len(all_actions)} actions of the dog.")
+                st.write(
+                    f"➣ Below is a countplot of all actions. This chart shows the distribution of {len(all_actions)} actions of the dog.")
 
                 fix3, ax3 = plt.subplots()
                 sns.countplot(x=all_actions, palette='Set2')
@@ -304,13 +320,14 @@ def main():
                 plt.ylabel('Count')
 
                 for p in ax3.patches:
-                    ax3.annotate(format(p.get_height(), '.0f'), 
-                                (p.get_x() + p.get_width() / 2., p.get_height()), 
-                                ha = 'center', va = 'center', 
-                                xytext = (0, 10), 
-                                textcoords = 'offset points')
+                    ax3.annotate(format(p.get_height(), '.0f'),
+                                 (p.get_x() + p.get_width() / 2., p.get_height()),
+                                 ha='center', va='center',
+                                 xytext=(0, 10),
+                                 textcoords='offset points')
 
                 st.pyplot(fix3)
+
 
 if __name__ == "__main__":
     main()
