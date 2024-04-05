@@ -140,6 +140,9 @@ def make_prediction(model, features_reshaped):
     # Make a prediction
     pred_action = model.predict(features_reshaped)
 
+    # threshold = 0.5
+    # pred_action = np.where(pred_action > threshold, pred_action, 0)
+
     # Get the index of the class with the maximum count
     pred_action = np.argmax(pred_action, axis=1)
 
